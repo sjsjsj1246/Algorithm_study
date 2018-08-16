@@ -61,4 +61,4 @@ int main()
 		}
 		cout << sum << "\n";
 	}
-}
+}   
