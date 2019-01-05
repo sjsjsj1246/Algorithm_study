@@ -29,7 +29,7 @@ void bfs(int x, int y, int cnt)
 		}
 		q.pop();
 		q2.pop();
-		for (int i = 0; i < 8; i++)
+		for (int i = 0; i < 4; i++)
 		{
 			
 			int nx = hx + dx[i];
