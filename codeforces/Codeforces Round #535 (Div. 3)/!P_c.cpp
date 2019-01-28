@@ -12,33 +12,36 @@ typedef signed long long ll;
 #define MINUS(a) memset(a,0xff,sizeof(a))
 //-------------------------------------------------------
 
-
 int N;
-multiset<int> M;
+string S;
 
 void solve() {
-	int i,j,k,l,r,x,y; string s; //자주 사용하는 변수를 미리 설정해놓는듯 대회에서는 유용할듯함
+	int i,j,k,l,r,x,y; string s; 
 	
-	cin>>N;
-	FOR(i,N) {
-		cin>>x;
-		M.insert(x);
-	}
+	cin>>N>>S;
+	string T="BGR",R;
+	int mi=1<<20;
+	do {
+		int dif=0;
+		FOR(i,N) {
+			if(S[i]!=T[i%3]) dif++;
+		}
+		if(dif<mi) {
+			mi=dif;
+			R="";
+			FOR(i,N) R.push_back(T[i%3]);
+		}
+	} while(next_permutation(ALL(T)));
 	
-	x=*M.rbegin();
-	for(i=1;i<=x;i++) {
-		if(x%i==0) M.erase(M.find(i));
-	}
 	
-	cout<<x<<" "<<*M.rbegin()<<endl;
-	
+	cout<<mi<<endl;
+	cout<<R<<endl;
 }
 
 
 int main(int argc,char** argv){
 	string s;int i;
 	if(argc==1) ios::sync_with_stdio(false), cin.tie(0);
-	FOR(i,argc-1) s+=argv[i+1],s+='\n'; FOR(i,s.size()) ungetc(s[s.size()-1-i],stdin); 
-	//아마 디버깅을 위한 코드인듯함 어떻게 써먹는지는 잘 모르겠음
+	FOR(i,argc-1) s+=argv[i+1],s+='\n'; FOR(i,s.size()) ungetc(s[s.size()-1-i],stdin);
 	cout.tie(0); solve(); return 0;
 }

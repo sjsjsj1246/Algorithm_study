@@ -19,6 +19,9 @@ typedef signed long long ll;
 #define FAST ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 //-------------------------------------------------------
 
+/*
+큰 수의 약수를 전부 제거한 후 나머지 가장 큰 수가 정답
+*/
 
 int main()
 {
