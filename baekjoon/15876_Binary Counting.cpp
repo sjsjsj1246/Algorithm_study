@@ -25,21 +25,26 @@ int T[305] = { 0, 1 };
 int main()
 {
 	FAST;
-	for (int i = 2; i < 305; i++)
-	{
-		T[i] = T[i - 1] + i;
-	}
+	int n, k;
+	cin >> n >> k;
 
-	int t;
-	cin >> t;
-	while (t--)
+	int t = 5;
+	int cnt = n;
+	int num = 0;
+	while (t>0)
 	{
-		int n, ans = 0;;
-		cin >> n;
-		for (int k = 1; k <= n; k++)
+		int temp = 0;
+
+		while (num >= (1 << temp)) temp++;
+		if (num != 0) temp--;
+
+		for (int i = temp; i >= 0; i--)
 		{
-			ans += k * T[k + 1];
+			cnt++;
+			int say = (num & (1 << i)) >> i;
+			if ((cnt - k) % n == 0) cout << say << " ", t--;
+			if (t == 0) return 0;
 		}
-		cout << ans << "\n";
+		num++;
 	}
 }

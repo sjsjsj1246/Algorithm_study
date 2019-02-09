@@ -19,27 +19,28 @@ typedef signed long long LL;
 #define MINUS(a) memset(a,-1,sizeof(a))
 #define FAST ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 //----------------------------------------------------------
-
-int T[305] = { 0, 1 };
+#define f(x) (x*(x+1))/2
 
 int main()
 {
-	FAST;
-	for (int i = 2; i < 305; i++)
-	{
-		T[i] = T[i - 1] + i;
-	}
+	int n;
+	LL ans = 0;
+	cin >> n;
 
-	int t;
-	cin >> t;
-	while (t--)
+	for (int i = 1; i <= n; i++) ans += f(i);
+
+	for (int i = 1; i <= n; i++)
 	{
-		int n, ans = 0;;
-		cin >> n;
-		for (int k = 1; k <= n; k++)
+		if (n % 2 == 0)
 		{
-			ans += k * T[k + 1];
+			if (i % 2 == 0) continue;
+			ans += f(i);
 		}
-		cout << ans << "\n";
+		else
+		{
+			if (i % 2 == 1) continue;
+			ans += f(i);
+		}
 	}
+	cout << ans;
 }

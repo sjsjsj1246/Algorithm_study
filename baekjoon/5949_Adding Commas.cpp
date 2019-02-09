@@ -20,26 +20,20 @@ typedef signed long long LL;
 #define FAST ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 //----------------------------------------------------------
 
-int T[305] = { 0, 1 };
-
 int main()
 {
-	FAST;
-	for (int i = 2; i < 305; i++)
+	string s;
+	cin >> s;
+	string sol;
+	int cnt = 0;
+	for (auto it = s.rbegin(); it != s.rend(); it++)
 	{
-		T[i] = T[i - 1] + i;
+		sol.push_back(*it);
+		cnt++;
+		if (it != s.rend() - 1 && cnt % 3 == 0) sol.push_back(',');
 	}
-
-	int t;
-	cin >> t;
-	while (t--)
+	for (auto it = sol.rbegin(); it != sol.rend(); it++)
 	{
-		int n, ans = 0;;
-		cin >> n;
-		for (int k = 1; k <= n; k++)
-		{
-			ans += k * T[k + 1];
-		}
-		cout << ans << "\n";
+		cout << *it;
 	}
 }

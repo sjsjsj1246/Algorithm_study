@@ -20,26 +20,50 @@ typedef signed long long LL;
 #define FAST ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 //----------------------------------------------------------
 
-int T[305] = { 0, 1 };
+map<string, char> m;
 
 int main()
 {
 	FAST;
-	for (int i = 2; i < 305; i++)
-	{
-		T[i] = T[i - 1] + i;
-	}
 
-	int t;
+	m[".-"] = 'A';
+	m["-..."] = 'B';
+	m["-.-."] = 'C';
+	m["-.."] = 'D';
+	m["."] = 'E';
+	m["..-."] = 'F';
+	m["--."] = 'G';
+	m["...."] = 'H';
+	m[".."] = 'I';
+	m[".---"] = 'J';
+	m["-.-"] = 'K';
+	m[".-.."] = 'L';
+	m["--"] = 'M';
+	m["-."] = 'N';
+	m["---"] = 'O';
+	m[".--."] = 'P';
+	m["--.-"] = 'Q';
+	m[".-."] = 'R';
+	m["..."] = 'S';
+	m["-"] = 'T';
+	m["..-"] = 'U';
+	m["...-"] = 'V';
+	m[".--"] = 'W';
+	m["-..-"] = 'X';
+	m["-.--"] = 'Y';
+	m["--.."] = 'Z';
+
+	int t, cnt = 0;
 	cin >> t;
 	while (t--)
 	{
-		int n, ans = 0;;
-		cin >> n;
-		for (int k = 1; k <= n; k++)
+		cnt++;
+		string s, ans;
+		for (int i = 0; i < 5; i++)
 		{
-			ans += k * T[k + 1];
+			cin >> s;
+			ans += m[s];
 		}
-		cout << ans << "\n";
+		cout << "Case " << cnt << ": " << ans << "\n";
 	}
 }
