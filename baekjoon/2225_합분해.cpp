@@ -11,9 +11,9 @@ typedef long long int LL;
 using namespace std;
 
 /*
-2225 ÇÕºÐÇØ
+2225 í•©ë¶„í•´
 dp, top-down
-dp[n][k] = k°³ÀÇ ÇÕÀ¸·Î nÀ» ¸¸µå´Â °æ¿ìÀÇ¼ö ÀúÀå
+dp[n][k] = kê°œì˜ í•©ìœ¼ë¡œ nì„ ë§Œë“œëŠ” ê²½ìš°ì˜ìˆ˜ ì €ìž¥
 memo(int n, int k) return dp[n][k]
 for i:n > n-i, k-1 
 */

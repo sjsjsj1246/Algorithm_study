@@ -18,16 +18,16 @@ typedef signed long long LL;
 #define MINUS(a) memset(a,-1,sizeof(a))
 #define FAST ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 //-------------------------------------------------------
-//À¯Å¬¸®µå È£Á¦¹ı (ÃÖ´ë°ø¾à¼ö, ÃÖ¼Ò°ø¹è¼ö ±¸ÇÏ±â ¹®Á¦¿¡ ÀÀ¿ë)
+//ìœ í´ë¦¬ë“œ í˜¸ì œë²• (ìµœëŒ€ê³µì•½ìˆ˜, ìµœì†Œê³µë°°ìˆ˜ êµ¬í•˜ê¸° ë¬¸ì œì— ì‘ìš©)
 
-int gcd(int a, int b) //ÃÖ´ë°ø¾à¼ö Àç±Í·Î À¯Å¬¸®µå È£Á¦¹ı ±¸Çö
+int gcd(int a, int b) //ìµœëŒ€ê³µì•½ìˆ˜ ì¬ê·€ë¡œ ìœ í´ë¦¬ë“œ í˜¸ì œë²• êµ¬í˜„
 {
 	if (b == 0)
 		return a;
 	gcd(b, a%b);
 }
 
-int lcm(int a, int b) //ÃÖ¼Ò°ø¹è¼ö
+int lcm(int a, int b) //ìµœì†Œê³µë°°ìˆ˜
 {
 	return (a*b) / gcd(a, b);
 }

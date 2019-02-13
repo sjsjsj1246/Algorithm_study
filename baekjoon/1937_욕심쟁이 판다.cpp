@@ -19,18 +19,18 @@ int dy[] = { 1,-1,0,0 };
 
 
 /*
-1937 ¿å½ÉÀïÀÌ ÆÇ´Ù
+1937 ìš•ì‹¬ìŸì´ íŒë‹¤
 dp, top-down / DFS
 LIS  problem
 -----------------
-dp[][] LIS ÀúÀå
+dp[][] LIS ì €ì¥
 
 memo()
 for(i:4) ret = max(ret,memo()+1)
 return ret
 
 -----------------
-LISÀÇ 2Â÷¿øÈ­ ±âº»¿ø¸®´Â °°À½
+LISì˜ 2ì°¨ì›í™” ê¸°ë³¸ì›ë¦¬ëŠ” ê°™ìŒ
 */
 
 int memo(int x, int y, int cnt)
