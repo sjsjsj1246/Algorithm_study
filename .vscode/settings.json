@@ -4,6 +4,8 @@
         "iosfwd": "cpp",
         "vector": "cpp",
         "utility": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "xiosbase": "cpp",
+        "queue": "cpp"
     }
 }
