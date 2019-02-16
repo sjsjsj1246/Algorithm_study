@@ -7,5 +7,6 @@
         "xstring": "cpp",
         "xiosbase": "cpp",
         "queue": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }
