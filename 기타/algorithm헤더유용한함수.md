@@ -4,7 +4,7 @@
 - clamp(v, lo, hi)  : v의 범위를 lo~hi로 제한한다. operator< 를 사용하여 비교한다. (C++17 이상하게 vs-studio에 없다)
 
 ## Permutation operations
-- is_permutation(s시작, s끝, d시작) : d가 s의 permutation인지 확인
+- is_permutation(s시작, s끝, d시작) : d가 s의 permutation인지 확인, (애너그램확인가능)
 - next_permutation(구간)    : 오름차순으로 다음 순열을 만들고 true반환, 마지막이면 false반환
 - pre_permutation(구간)     : ''
 
