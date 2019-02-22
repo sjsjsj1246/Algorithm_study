@@ -19,6 +19,11 @@ typedef signed long long ll;
 #define FAST ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 //-------------------------------------------------------
 
+/**
+ * 모든 가능한 문자열에 대해 BGRBGRBG...의 순서로 만들때 바꿔야 하는 램프의 최솟값을 구하려함
+ * 그렇게 하면 자동으로 문제의 조건이 맞춰짐, GRB GBR.. 뭐로 하든 상관없음
+ */
+
 int main() 
 {
 	int n;
@@ -40,7 +45,7 @@ int main()
 	} while (next_permutation(ALL(T)));
 	/*
 	https://twpower.github.io/82-next_permutation-and-prev_permutation
-	next_permutation : �־��� �迭�� ������ ���� ������ ������ �ٲٰ� true ��ȯ
+	next_permutation : 주어진 배열의 순열을 다음 순서의 순열로 바꾸고 true 반환
 	*/
 	cout << mi << endl;
 	cout << R << endl;
