@@ -29,7 +29,7 @@ bool decision(const vector<double>& location, int cameras, double gap)
 }
 
 //최적화 문제: 정렬되어 있는 locations중 cameras를 선택해 최소 간격을 최대화한다.
-double oprimize(const vector<double>& location, int cameras)
+double optimize(const vector<double>& location, int cameras)
 {
 	double lo = 0, hi = 241;
 	//반복문 불변식: decision(lo) && !decision(hi)

@@ -83,7 +83,7 @@ T MaxHeap<T>::delete_item()
 
 	T res = heap[1];
 	heap[1] = heap[heap_size];
-	heap[heap_size] = 0;
+	heap.pop_back();
 	heap_size--;
 
 	for (int i = 1; i * 2 <= heap_size;)
