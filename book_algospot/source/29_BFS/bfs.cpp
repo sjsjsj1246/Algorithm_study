@@ -14,28 +14,28 @@
 #include<vector>
 using namespace std;
 
-// ±×·¡ÇÁÀÇ ÀÎÁ¢ ¸®½ºÆ® Ç¥Çö
+// ê·¸ë˜í”„ì˜ ì¸ì ‘ ë¦¬ìŠ¤íŠ¸ í‘œí˜„
 vector<vector<int> > adj;
 
-// start ¿¡¼­ ½ÃÀÛÇØ ±×·¡ÇÁ¸¦ ³Êºñ ¿ì¼± Å½»öÇÏ°í °¢ Á¤Á¡ÀÇ ¹æ¹® ¼ø¼­¸¦ ¹İÈ¯ÇÑ´Ù.
+// start ì—ì„œ ì‹œì‘í•´ ê·¸ë˜í”„ë¥¼ ë„ˆë¹„ ìš°ì„  íƒìƒ‰í•˜ê³  ê° ì •ì ì˜ ë°©ë¬¸ ìˆœì„œë¥¼ ë°˜í™˜í•œë‹¤.
 vector<int> bfs(int start) {
-	// °¢ Á¤Á¡ÀÇ ¹æ¹® ¿©ºÎ
+	// ê° ì •ì ì˜ ë°©ë¬¸ ì—¬ë¶€
 	vector<bool> discovered(adj.size(), false);
-	// ¹æ¹®ÇÒ Á¤Á¡ ¸ñ·ÏÀ» À¯ÁöÇÏ´Â Å¥
+	// ë°©ë¬¸í•  ì •ì  ëª©ë¡ì„ ìœ ì§€í•˜ëŠ” í
 	queue<int> q; 
-	// Á¤Á¡ÀÇ ¹æ¹® ¼ø¼­
+	// ì •ì ì˜ ë°©ë¬¸ ìˆœì„œ
 	vector<int> order;
 	discovered[start] = true;
 	q.push(start);
 	while(!q.empty()) {
 		int here = q.front();
 		q.pop();		
-		// here¸¦ ¹æ¹®ÇÑ´Ù.
+		// hereë¥¼ ë°©ë¬¸í•œë‹¤.
 		order.push_back(here);		
-		// ¸ğµç ÀÎÁ¢ÇÑ Á¤Á¡À» °Ë»çÇÑ´Ù.
+		// ëª¨ë“  ì¸ì ‘í•œ ì •ì ì„ ê²€ì‚¬í•œë‹¤.
 		for(int i = 0; i < adj[here].size(); i++)  {
 			int there = adj[here][i];
-			// Ã³À½ º¸´Â Á¤Á¡ÀÌ¸é ¹æ¹® ¸ñ·Ï¿¡ Áı¾î³Ö´Â´Ù.
+			// ì²˜ìŒ ë³´ëŠ” ì •ì ì´ë©´ ë°©ë¬¸ ëª©ë¡ì— ì§‘ì–´ë„£ëŠ”ë‹¤.
 			if(!discovered[there]) {
 				q.push(there);
 				discovered[there] = true;
@@ -45,14 +45,14 @@ vector<int> bfs(int start) {
 	return order;
 }
 
-// start ¿¡¼­ ½ÃÀÛÇØ ±×·¡ÇÁ¸¦ ³Êºñ ¿ì¼± Å½»öÇÏ°í ½ÃÀÛÁ¡ºÎÅÍ °¢ Á¤Á¡±îÁöÀÇ
-// ÃÖ´Ü °Å¸®¿Í ³Êºñ ¿ì¼± Å½»ö ½ÅÀå Æ®¸®¸¦ °è»êÇÑ´Ù.
-// distance[i] = start ºÎÅÍ i±îÁöÀÇ ÃÖ´Ü °Å¸®
-// parent[i] = ³Êºñ ¿ì¼± Å½»ö ½ÅÀå Æ®¸®¿¡¼­ iÀÇ ºÎ¸ğÀÇ ¹øÈ£
+// start ì—ì„œ ì‹œì‘í•´ ê·¸ë˜í”„ë¥¼ ë„ˆë¹„ ìš°ì„  íƒìƒ‰í•˜ê³  ì‹œì‘ì ë¶€í„° ê° ì •ì ê¹Œì§€ì˜
+// ìµœë‹¨ ê±°ë¦¬ì™€ ë„ˆë¹„ ìš°ì„  íƒìƒ‰ ì‹ ì¥ íŠ¸ë¦¬ë¥¼ ê³„ì‚°í•œë‹¤.
+// distance[i] = start ë¶€í„° iê¹Œì§€ì˜ ìµœë‹¨ ê±°ë¦¬
+// parent[i] = ë„ˆë¹„ ìš°ì„  íƒìƒ‰ ì‹ ì¥ íŠ¸ë¦¬ì—ì„œ iì˜ ë¶€ëª¨ì˜ ë²ˆí˜¸
 void bfs2(int start, vector<int>& distance, vector<int>& parent) {
 	distance = vector<int>(adj.size(), -1);
 	parent = vector<int>(adj.size(), -1);
-	// ¹æ¹®ÇÒ Á¤Á¡ ¸ñ·ÏÀ» À¯ÁöÇÏ´Â Å¥
+	// ë°©ë¬¸í•  ì •ì  ëª©ë¡ì„ ìœ ì§€í•˜ëŠ” í
 	queue<int> q; 
 	distance[start] = 0;
 	parent[start] = start;
@@ -60,10 +60,10 @@ void bfs2(int start, vector<int>& distance, vector<int>& parent) {
 	while(!q.empty()) {
 		int here = q.front();
 		q.pop();		
-		// hereÀÇ ¸ğµç ÀÎÁ¢ÇÑ Á¤Á¡À» °Ë»çÇÑ´Ù.
+		// hereì˜ ëª¨ë“  ì¸ì ‘í•œ ì •ì ì„ ê²€ì‚¬í•œë‹¤.
 		for(int i = 0; i < adj[here].size(); i++)  {
 			int there = adj[here][i];
-			// Ã³À½ º¸´Â Á¤Á¡ÀÌ¸é ¹æ¹® ¸ñ·Ï¿¡ Áı¾î³Ö´Â´Ù.
+			// ì²˜ìŒ ë³´ëŠ” ì •ì ì´ë©´ ë°©ë¬¸ ëª©ë¡ì— ì§‘ì–´ë„£ëŠ”ë‹¤.
 			if(distance[there] == -1) {
 				q.push(there);
 				distance[there] = distance[here] + 1;
@@ -73,7 +73,7 @@ void bfs2(int start, vector<int>& distance, vector<int>& parent) {
 	}	
 }
 
-// v·ÎºÎÅÍ ½ÃÀÛÁ¡±îÁöÀÇ ÃÖ´Ü °æ·Î¸¦ °è»êÇÑ´Ù.
+// vë¡œë¶€í„° ì‹œì‘ì ê¹Œì§€ì˜ ìµœë‹¨ ê²½ë¡œë¥¼ ê³„ì‚°í•œë‹¤.
 vector<int> shortestPath(int v, const vector<int>& parent) {
 	vector<int> path(1, v);
 	while(parent[v] != v) {
