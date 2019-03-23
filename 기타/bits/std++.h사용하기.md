@@ -1,0 +1,1 @@
+https://gooddaytocode.blogspot.com/2018/01/bitsstdch-visual-studio.html
