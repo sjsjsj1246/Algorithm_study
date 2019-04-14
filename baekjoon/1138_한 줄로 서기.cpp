@@ -11,15 +11,23 @@ using namespace std;
 int main()
 {
 	FAST;
-	ll n, len = 0, ans = 0;
+	int n;
 	cin >> n;
-	vector<ll> arr(n);
-	FOR(i, 0, n) cin >> arr[i], len += arr[i];
-	sort(ALL(arr));
+	vector<int> arr(n);
+	vector<int> ans(n, 0);
+	FOR(i, 0, n) cin >> arr[i];
 	FOR(i, 0, n)
 	{
-		ans += (len - arr[i]) * arr[i];
-		len -= arr[i];
+		int cnt = 0;
+		for (int j = 0; j < n; j++)
+		{
+			if (arr[i] == cnt && ans[j] == 0)
+			{
+				ans[j] = i + 1;
+				break;
+			}
+			if (ans[j] == 0) cnt++;
+		}
 	}
-	cout << ans;
+	for (auto x : ans) cout << x << " ";
 }

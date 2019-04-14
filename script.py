@@ -1,16 +1,7 @@
-from random import *
-n = 50000
-ans = ""
-e = s = 0
-while e < n-1 or s<n-1:
-    i = randint(0,2)
-    if i is 0 and e < n-1:
-        ans+="E"
-        e+=1
-    elif i is 1 and s < n-1:
-        ans+="S"
-        s+=1
+import numpy as np
 
-f = open("test.txt", 'w')
-f.write(str(n)+"\n"+ans)
-f.close()
+def f(r, x):
+    if np.any(np.logical_and(x >= 0, x <= 1/2)):
+        return r*x
+    elif np.any(np.logical_and(x > 1/2, x <= 1)):
+        return r*(1-x)

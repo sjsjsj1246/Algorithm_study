@@ -11,15 +11,21 @@ using namespace std;
 int main()
 {
 	FAST;
-	ll n, len = 0, ans = 0;
+	int n;
 	cin >> n;
-	vector<ll> arr(n);
-	FOR(i, 0, n) cin >> arr[i], len += arr[i];
-	sort(ALL(arr));
-	FOR(i, 0, n)
+	map<string, int> m;
+	string s;
+	FOR(i, 0, n) cin >> s, m[s]++;
+
+	int Max = 0;
+	string ans = s;
+	for (auto x : m) 
 	{
-		ans += (len - arr[i]) * arr[i];
-		len -= arr[i];
+		if (Max < x.second)
+		{
+			Max = x.second;
+			ans = x.first;
+	 	}
 	}
 	cout << ans;
 }
