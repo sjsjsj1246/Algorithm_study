@@ -1,26 +1,22 @@
-#include<bits/stdc++.h>
-using namespace std;
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+	char str[101];
+	int len;
+	scanf("%s", str);
 
-int main() {
-	ios_base::sync_with_stdio(0);
-	int T; cin >> T;
-
-	for (int case_num = 1; case_num <= T; case_num ++) {
-		string N; cin >> N;
-		string A;
-		string B;
-		for (char c : N) {
-			if (c == '4') {
-				A += '1';
-				B += '3';
-			} else {
-				if (!A.empty()) A += '0';
-				B += c;
-			}
+	len = strlen(str);
+	for (int i = 0; i <= len; i += 10)
+	{
+		for (int j = i; j < i + 10; j++)
+		{
+			if (str[j] == '\0')
+				return 0;
+			printf("%c", str[j]);
 		}
-
-		cout << "Case #" << case_num << ": " << A << ' ' << B << '\n';
+		printf("\n");
 	}
+}a
 
-	return 0;
-}
+
