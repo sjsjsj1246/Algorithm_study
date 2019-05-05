@@ -6,7 +6,7 @@ using namespace std;
 /**
  * 힙(heap)
  * 우선순위 큐를 위하여 만들어진 자료구조
- * 삽입 logn, 삽입 logn 구현 가능
+ * 삽입 logn, 삭제 logn 구현 가능
  * 
  * 힙이란
  * - 완전 이진 트리의 일종
@@ -117,5 +117,3 @@ int main()
 	h.insert(7);
 	while (!h.empty()) cout << h.delete_item() << " ";
 }
-
-//와.. 힘들었다;;
