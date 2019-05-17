@@ -1,0 +1,1 @@
+main(){puts("Welcome to Tools Programming Contest!");}
