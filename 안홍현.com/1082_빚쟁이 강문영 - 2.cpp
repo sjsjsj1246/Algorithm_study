@@ -8,6 +8,7 @@ int main()
 
 	int len = strlen(s);
 	int ans_len = 0;
+	int flag = 1;
 	for (int i = 0; i < len; i++)
 	{
 		if (s[i] == '4')
@@ -15,6 +16,7 @@ int main()
 			s[i] = '3';
 			ans[ans_len] = '1';
 			ans_len++;
+			flag = 0;
 		}
 		else if (ans_len != 0)
 		{
@@ -22,6 +24,10 @@ int main()
 			ans_len++;
 		}
 	}
-	ans[ans_len] = '\0';
-	printf("%s %s", s, ans);
+	if (flag) printf("%s 0", s);
+	else 
+	{
+		ans[ans_len] = '\0';
+		printf("%s %s", s, ans);
+	}
 }
