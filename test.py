@@ -1,8 +1,20 @@
-import random
-s = list(input().split(" "))
-for i in range(int(len(s)/4)):
-   s2 = random.sample(s, 4)
-   for x in s2:
-       s.remove(x)
-   print(s2)
-print(s)
+import numpy
+
+pi = 3.14159265358979323846
+t = int(input())
+for cases in range(t):
+    ans=0
+    r, s, e = map(int, input().split())
+    n = int(input())
+    for i in range(n):
+        a, b, c = map(int, input().split())
+        ans += a - s - r
+        ans += b - a + 2 * (c - r)
+        if (c >= r):
+            ans += pi * r
+        else:
+            ans += 2 * r * numpy.arccos((r - c) / r)
+        s = b + r
+    ans += e-s
+    print("Case #", t+1)
+    print(ans)
