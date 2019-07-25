@@ -14,6 +14,7 @@ ll res;
 
 void dfs(int here, int cnt)
 {
+	if (tree[here].size() == 1 && here != 1)
 	{
 		res += cnt;
 		return;
